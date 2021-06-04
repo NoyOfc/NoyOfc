@@ -1,0 +1,15 @@
+#Quick List of Jordan Brand shoes coming out from 23isback.com
+
+#import webdriver from selenium library
+from selenium import webdriver 
+#directory where chromedriver.exe is located
+chrome_path = r"C:\Users\noyph\Downloads\chromedriver_win32\chromedriver.exe"
+#rename webdriver.Chrome(chrome_path) as driver
+driver = webdriver.Chrome(chrome_path)
+#user driver to open 23isback.com in Chrome.
+driver.get("https://23isback.com/")
+#Within the main navigation bar we will click Releases
+driver.find_element_by_xpath("""//*[@id="mainNavigation"]/div[2]/a""").click()
+contents = driver.find_elements_by_class_name("""sqs-block-content""")
+for content in contents:
+    print(content.text)
